@@ -12,6 +12,6 @@
  return[
     "host" => "localhost",
     "dbname" => "gestion-contacts",
-    "username"=> "mamu",
-    "password"=> "mysqlmamy1976@"
+    "username"=> "the_username",
+    "password"=> "yourpassword"
  ];
