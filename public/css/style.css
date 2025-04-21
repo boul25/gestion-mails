@@ -26,6 +26,12 @@ html {
     margin-bottom: 20px;
     color: #333;
 }
+/* div error */
+.error {
+    background: red;
+    color: #ffffff;
+    font-weight: bold;
+}
 
 /* Formulaire */
 form {

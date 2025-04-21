@@ -8,17 +8,16 @@
  *
  * Description   : C'est une classe singleton qui se connecte a la base de données
  */
-
-
 class Database {
 
     static $db;
 
     public static function  getConnection() {
-        $setting=require_once __DIR__.'/../config/setting.php';
+        $setting=require_once __DIR__.'/../../config/setting.php';
+
         try{
             if(!self::$db){
-                self::$db = new PDO('mysql:host=' . $setting['host'] . ';dbname=' . $setting['dbname'], $setting['user'], $setting['password']);
+                self::$db = new PDO('mysql:host='.$setting['host'].';dbname='.$setting['dbname'], $setting['username'], $setting['password']);
                 self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
             // on retourne la connection

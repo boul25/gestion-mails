@@ -22,6 +22,13 @@
 
 <body>
     <main id="container"  class="container">
+            <?php
+                if(isset($_SESSION['error_message'])) {
+            ?>
+            <div id="error" class="error"><?php echo $_SESSION['error_message']; unset($_SESSION['error_message']);?></div>
+            <?php
+                }
+            ?>
             <div id="titre" class="titre">Page d'Authentification</div>
             <div id="formulaire" class="formulaire">
                 <form name="loginForm" id="loginForm" action="" method="post">
