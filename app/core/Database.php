@@ -13,8 +13,7 @@ class Database {
     static $db;
 
     public static function  getConnection() {
-        $setting=require_once __DIR__.'/../../config/setting.php';
-
+        $setting = $GLOBALS['setting'];
         try{
             if(!self::$db){
                 self::$db = new PDO('mysql:host='.$setting['host'].';dbname='.$setting['dbname'], $setting['username'], $setting['password']);

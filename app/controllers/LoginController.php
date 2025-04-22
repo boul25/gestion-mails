@@ -8,11 +8,15 @@
  *
  * Description   : recupère le login, fait appel à la base de données, puis redirige vers une page ou le formulaire de login
  */
-session_start();
-require_once __DIR__ . '/../models/User.php';
 class LoginController {
    
-
+    /**
+     * fonction qui traite les données de connexion et redigirige ou affiche une erreur
+     *
+     * @param string $email
+     * @param string $password
+     * @return void
+     */
     public function handleLogin($email,$password) {
         $user=User::findByLogin($email);
         //on verifie le mot de passe si c'est ok on inclue le dashboard

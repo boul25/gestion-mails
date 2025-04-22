@@ -4,14 +4,19 @@
  * Sujet         : modele pour interroger la table user
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-21
- * Dernière mod. : 2025-04-21
+ * Dernière mod. : 2025-04-22
  *
  * Description   : interroge la base et renvoir le résultat
  */
 
-require_once __DIR__ . '/../core/Database.php';
 
 class User {
+    /**
+     * findByLogin
+     *
+     * @param char $email
+     * @return l'enregistrement trouver
+     */
     public static function findByLogin($email)
     {
         $conn = Database::getConnection();
