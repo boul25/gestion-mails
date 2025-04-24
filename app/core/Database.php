@@ -21,8 +21,7 @@ class Database {
             }
             // on retourne la connection
             return self::$db;
-        } catch(PDOException $e)
-        {
+        } catch(PDOException $e) {
             echo "<h1> Ereur de connection à la base </h1>" . $e->getMessage();
         }
         

@@ -5,9 +5,9 @@
  * Sujet         : Fichier html pour affichier le formulaire
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-20
- * Dernière mod. : 2025-04-20
+ * Dernière mod. : 2025-04-23
  *
- * Description   : Décrivez ce que fait ce fichier ici...
+ * Description   : fichier principal de l'application
  */
 ?>
 <!DOCTYPE html>
@@ -21,24 +21,30 @@
 </head>
 
 <body>
-    <main id="container"  class="container">
-            <?php
-                if(isset($_SESSION['error_message'])) {
-            ?>
-            <div id="error" class="error"><?php echo $_SESSION['error_message']; unset($_SESSION['error_message']);?></div>
-            <?php
-                }
-            ?>
-            <div id="titre" class="titre">Page d'Authentification</div>
-            <div id="formulaire" class="formulaire">
-                <form name="loginForm" id="loginForm" action="" method="post">
-                    <label for="login"> Login </label>
-                    <input type="text" id="login" name="login">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password">
-                    <input type="submit" value="se connecter">
-                </form>
+    <main id="container" class="container">
+        <?php
+        if (isset($_SESSION['error_message'])) :  ?>
+            <div id="error" class="error">
+                <?php echo $_SESSION['error_message'];
+                unset($_SESSION['error_message']); ?>
             </div>
+        <?php
+        endif;
+        ?>
+        <div id="titre" class="titre">Page d'Authentification</div>
+        <div id="formulaire" class="formulaire">
+            <form name="loginForm" id="loginForm" action="" method="post">
+                <label for="login"> Login </label>
+                <input type="text" id="login" name="login"
+                    <?php if (isset($_SESSION['email'])): ?>
+                    value="<?= htmlspecialchars($_SESSION['email']) ?>"
+                    <?php unset($_SESSION['email']); ?>
+                    <?php endif; ?>>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                <input type="submit" value="se connecter">
+            </form>
+        </div>
     </main>
 </body>
 

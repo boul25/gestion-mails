@@ -4,7 +4,7 @@
  * Sujet         : le futur router?
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-20
- * Dernière mod. : 2025-04-22
+ * Dernière mod. : 2025-04-24
  *
  * Description   : fichier par défaut qui s'affiche 
  */
@@ -46,8 +46,20 @@ if(@$_SESSION['login']) { //test si on est connecté
     switch ($page) {
         
         case 'dashboard' :
-        require 'app/views/dashboard.php';
-        break;
+            //require 'app/views/dashboard.php';
+            require 'app/controllers/Dashboard.php';
+            $page = new Dashboard();
+            $page->loadDashboard();
+            break;
+
+        case 'login' :
+            require 'app/views/index.php';
+            break;
+
+        case 'logout' :
+            Auth::logout();
+            break;
+
     
         /*default :
         require 'app/views/dashboard.php';*/

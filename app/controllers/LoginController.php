@@ -29,13 +29,14 @@ class LoginController {
         }
         if(password_verify($password,$user->password_utilisateur)) {
             $_SESSION['login']=$user->nom_utilisateur;
-            header('Location: /gestion-mails?page=dashboard');
+            header('Location: /gestion-mails/index.php?page=dashboard');
             exit;
         }
 
         else {
             // Redirection en cas de mauvais mot de passe
             $_SESSION['error_message'] = "mot de passe incorrecte";
+            $_SESSION['email']=$_REQUEST['login'];
             header('Location: /gestion-mails');
             exit;
         }
