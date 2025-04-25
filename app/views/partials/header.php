@@ -22,7 +22,7 @@
 
 <body>
     <header>
-        <div id="connecter">Utilisateur connecté : {nom utilisateur} <br> <a href="index.php?page=logout">Se deconnecter</a></div>
+        <div id="connecter">Utilisateur connecté : <?=$_SESSION['login'];?> <br> <a href="index.php?page=logout">Se deconnecter</a></div>
         <nav>
             <ul>
                 <li><a href="#">Dashboard</a></li>

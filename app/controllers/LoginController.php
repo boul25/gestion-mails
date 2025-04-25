@@ -20,6 +20,7 @@ class LoginController {
     public function handleLogin($email,$password) {
         $user=User::findByLogin($email);
         //on verifie le mot de passe si c'est ok on inclue le dashboard
+        //sinon on redirige vers le formulaire de login       
 
         if(!$user) {
             //redirection si utilisateur n'existe pas
