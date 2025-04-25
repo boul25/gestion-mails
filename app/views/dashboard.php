@@ -11,7 +11,7 @@
 include 'partials/header.php';
 ?>
         <section>
-            <h2>Nombre d'adresse Professionnel : {nombre pro} </h2>
+            <h2>Nombre d'adresse Professionnel : <?=$nombreEmailpro;?></h2>
             <div id="FormPro">
                 <form name="ajoutpro" id="ajoutpro" class="ajoutpro" action="index.php?page=ajoutpro" method="get">
                     <input type="submit" value="ajouter">

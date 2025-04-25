@@ -10,8 +10,12 @@
  */
 
  class Dashboard {
+    
+    public int $nombreEmailpro ;
 
     public function loadDashboard() {
+
+        $nombreEmailpro=Emailpro::getNombrepro();
         include __DIR__ . '/../views/dashboard.php';
     }
  }

@@ -12,6 +12,10 @@
  class Emailpro {
 
     public static function getNombrepro() : int {
-        
+      $conn = Database::getConnection();
+      $sql = "SELECT COUNT(*) AS total FROM liste_pro";
+      $stmt = $conn->query($sql);
+      $result= $stmt->fetch(PDO::FETCH_ASSOC);
+      return $result['total'];
     }
  }
