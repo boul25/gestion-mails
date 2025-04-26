@@ -16,6 +16,9 @@
     public function loadDashboard() {
 
         $nombreEmailpro=Emailpro::getNombrepro();
+        $nombreEmailparticulier=Emailparticulier::getNombreparticuler();
+        $lastRecordparticulier=Emailparticulier::lastInsertparticulier();
+        $lastRecordpro=Emailpro::lastRecordpro();
         include __DIR__ . '/../views/dashboard.php';
     }
  }

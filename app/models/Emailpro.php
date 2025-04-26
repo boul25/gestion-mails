@@ -18,4 +18,12 @@
       $result= $stmt->fetch(PDO::FETCH_ASSOC);
       return $result['total'];
     }
+
+    public static function lastRecordpro() : array {
+      $conn = Database::getConnection();
+      $sql ="SELECT * FROM liste_pro ORDER by id_pro DESC LIMIT 5";
+      $stmt = $conn->query($sql);
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      return $result;
+    }
  }

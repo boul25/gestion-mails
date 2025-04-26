@@ -14,10 +14,16 @@ header {
 
 #connecter {
     margin-bottom: 10px;
+    text-align: right;
+}
+#connecter a:hover, #menu a:hover {
+    color: chocolate;
+    text-decoration: underline;
 }
 
 nav ul {
     display: flex;
+    justify-content: flex-start;
     gap: 15px;
     list-style: none;
     padding: 0;
@@ -27,13 +33,22 @@ nav ul li a, header a {
     color: white;
     text-decoration: none;
 }
-
 main {
     padding: 20px;
+}
+
+#stat, #lastrecord {
+  
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
+
+#stat {
+    margin-bottom: 20px;
+}
+
+
 
 section {
     background: white;

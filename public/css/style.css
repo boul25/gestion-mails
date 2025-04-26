@@ -11,6 +11,9 @@ body,
 html {
     height: 100vh;
 }
+#connceter {
+    text-align: right;
+}
 
 .container {
     display: flex;
