@@ -30,4 +30,12 @@ use \PDO;
       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
       return $result;
     }
+
+    public static function getAllEmailpro() : array {
+      $conn = Database::getConnection();
+      $sql ="SELECT * FROM liste_pro LIMIT 100 OFFSET 0 ";
+      $stmt = $conn->query($sql);
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      return $result;
+    }
  }

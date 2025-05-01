@@ -44,6 +44,10 @@ if(@$_SESSION['login']) { //test si on est connecté
         case 'login' :
             require 'app/Views/index.php';
             break;
+        
+        case 'listepro' :
+            require "app/Controllers/ListeProController.php";
+            break;
 
         case 'logout' :
             Auth::logout();
