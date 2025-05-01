@@ -4,10 +4,14 @@
  * Sujet         : modele pour interagir avec liste pro
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-25
- * Dernière mod. : 2025-04-25
+ * Dernière mod. : 2025-05-01
  *
  * Description   : on établi les requettes
  */
+namespace App\Models;
+
+use App\Core\Database;
+use \PDO;
 
  class Emailpro {
 

@@ -4,10 +4,14 @@
  * Sujet         : Modele pour la table liste_particulier
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-26
- * Dernière mod. : 2025-04-26
+ * Dernière mod. : 2025-05-01
  *
  * Description   : Interaction avec cette table, retourne le nombre, modifie, insertion?
  */
+ namespace App\Models;
+
+ use App\Core\Database;
+ use \PDO;
 
  class Emailparticulier {
 

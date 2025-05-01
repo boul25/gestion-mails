@@ -4,11 +4,14 @@
  * Sujet         : modele pour interroger la table user
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-21
- * Dernière mod. : 2025-04-22
+ * Dernière mod. : 2025-05-01
  *
  * Description   : interroge la base et renvoir le résultat
  */
+namespace App\Models;
 
+use \App\Core\Database;
+use \PDO;
 
 class User {
     /**

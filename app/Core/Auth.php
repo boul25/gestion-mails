@@ -4,11 +4,12 @@
  * Sujet         : Fichier pour verifier si on est authentifier et la sécru
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-24
- * Dernière mod. : 2025-04-24
- *
+ * Dernière mod. : 2025-05-01
+ * 
  * Description   : verifie si la variable session existe, fonction qui test la session, fonction qui supprime la sesstion
  * 
  */
+namespace App\Core;
 
  class Auth {
 

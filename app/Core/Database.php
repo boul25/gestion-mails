@@ -4,10 +4,16 @@
  * Sujet         : Classe qui va renvoyer l'objet de connection
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-20
- * Dernière mod. : 2025-04-20
+ * Dernière mod. : 2025-05-01
  *
  * Description   : C'est une classe singleton qui se connecte a la base de données
+ * 
  */
+namespace App\Core;
+
+use \PDO;
+use \PDOException;
+
 class Database {
 
     static $db;

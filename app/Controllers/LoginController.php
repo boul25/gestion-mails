@@ -4,10 +4,15 @@
  * Sujet         : Contloller pour le login
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-21
- * Dernière mod. : 2025-04-21
+ * Dernière mod. : 2025-05-01
  *
  * Description   : recupère le login, fait appel à la base de données, puis redirige vers une page ou le formulaire de login
  */
+ namespace App\Controllers;
+
+use App\Models\User;
+
+
 class LoginController {
    
     /**
