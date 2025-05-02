@@ -10,6 +10,7 @@
  */
 use App\Controllers\Dashboard;
 use App\Controllers\LoginController;
+use App\Controllers\ListeProController;
 use App\Core\Auth;
 
 session_start();
@@ -47,6 +48,8 @@ if(@$_SESSION['login']) { //test si on est connecté
         
         case 'listepro' :
             require "app/Controllers/ListeProController.php";
+            $page = new ListeProController();
+            $page->listeMailpro();
             break;
 
         case 'logout' :
