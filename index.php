@@ -37,7 +37,7 @@ if(@$_SESSION['login']) { //test si on est connecté
         
         case 'dashboard' :
             //require 'app/views/dashboard.php';
-            require 'app/Controllers/Dashboard.php';
+            //require 'app/Controllers/Dashboard.php';
             $page = new Dashboard();
             $page->loadDashboard();
             break;
@@ -47,7 +47,7 @@ if(@$_SESSION['login']) { //test si on est connecté
             break;
         
         case 'listepro' :
-            require "app/Controllers/ListeProController.php";
+            //require "app/Controllers/ListeProController.php";
             $page = new ListeProController();
             $page->listeMailpro();
             break;

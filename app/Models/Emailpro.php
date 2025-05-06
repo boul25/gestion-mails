@@ -11,37 +11,15 @@
 namespace App\Models;
 
 use App\Core\Database;
+use App\Models\Emailbase;
 use \PDO;
 
- class Emailpro {
+ class Emailpro extends Emailbase {
 
-    public static function getNombrepro() : int {
-      $conn = Database::getConnection();
-      $sql = "SELECT COUNT(*) AS total FROM liste_pro";
-      $stmt = $conn->query($sql);
-      $result= $stmt->fetch(PDO::FETCH_ASSOC);
-      return $result['total'];
-    }
-
-    public static function lastRecordpro() : array {
-      $conn = Database::getConnection();
-      $sql ="SELECT * FROM liste_pro ORDER by id_pro DESC LIMIT 5";
-      $stmt = $conn->query($sql);
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      return $result;
-    }
-    /**
-     * getAllEmailpro : retourne une liste de 100 par ecran 
-     *
-     * @param [int] $page
-     * @return array
-     */
-    public static function getAllEmailpro($pagination) : array {
-      $offset= $pagination*30 ?? 0;
-      $conn = Database::getConnection();
-      $sql ="SELECT * FROM liste_pro LIMIT 30 OFFSET $offset ";
-      $stmt = $conn->query($sql);
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      return $result;
-    }
+  public function getTablename(): string {
+    return "liste_pro";
+  }
+  public function getIdTable(): string {
+    return "id_pro";
+  }
  }

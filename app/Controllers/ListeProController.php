@@ -15,8 +15,9 @@ class ListeProController {
 
     public function listeMailpro() {
         $pagination=$_GET['pagination'] ?? 0;
-        $liste=Emailpro::getAllEmailpro((int)$pagination);
-        $total=Emailpro::getNombrepro();
+        $emailpro= new Emailpro();
+        $liste=$emailpro->getAll($pagination);
+        $total=$emailpro->getNombre();
         require __DIR__.'/../Views/liste_pro.php';
 
     }
