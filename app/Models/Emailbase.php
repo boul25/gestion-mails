@@ -47,5 +47,14 @@ use \PDO;
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function getById(int $id) : array {
+        $conn=Database::getConnection();
+        $sql ="SELECT * FROM ".$this->getTablename()." WHERE ". $this->getIdTable() ." = :id";
+        $stmt=$conn->prepare($sql);
+        $stmt->execute([':id'=>$id]);
+        $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
     
  }
