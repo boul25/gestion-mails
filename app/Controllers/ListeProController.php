@@ -4,7 +4,7 @@
  * Sujet         : Controlleur pour le listing pro
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-05-01
- * Dernière mod. : 2025-05-02
+ * Dernière mod. : 2025-05-07
  *
  * Description   : connection à la base, requete, charge la vue
  */
@@ -20,5 +20,11 @@ class ListeProController {
         $total=$emailpro->getNombre();
         require __DIR__.'/../Views/liste_pro.php';
 
+    }
+
+    public function loadFormpro(int $id) {
+        $dataobj= new Emailpro();
+        $data=$dataobj->getById($id);
+        require  __DIR__.'/../Views/formupdatepro.php';
     }
 }

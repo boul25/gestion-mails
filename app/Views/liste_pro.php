@@ -4,7 +4,7 @@
  * Sujet         : view pour la liste des emails pros
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-05-02
- * Dernière mod. : 2025-05-02
+ * Dernière mod. : 2025-05-07
  *
  * Description   : Affichage liste mail pro
  */
@@ -28,7 +28,7 @@ require 'partials/header.php';
       <td><?= htmlspecialchars($pro['entreprise']?? '') ?></td>
       <td><?= htmlspecialchars($pro['email']?? '') ?></td>
       <td>
-        <a href="#">✏️</a>
+        <a href="index.php?page=formupdatepro&id=<?=$pro['id_pro'];?>">✏️</a>
         <a href="#" onclick="return confirm('Supprimer ?')">🗑️</a>
       </td>
     </tr>

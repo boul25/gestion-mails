@@ -4,7 +4,7 @@
  * Sujet         : Class abstraite pour définir les mails
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-05-04
- * Dernière mod. : 2025-05-04
+ * Dernière mod. : 2025-05-07
  *
  * Description   : factorise les méthodes d'accès aux tables mail
  */
@@ -47,7 +47,12 @@ use \PDO;
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-
+/**
+ * fonction qui retourne un enregistrement avec son id
+ *
+ * @param integer $id
+ * @return array
+ */
     public function getById(int $id) : array {
         $conn=Database::getConnection();
         $sql ="SELECT * FROM ".$this->getTablename()." WHERE ". $this->getIdTable() ." = :id";
