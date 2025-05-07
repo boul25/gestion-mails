@@ -8,6 +8,7 @@
  *
  * Description   : Charger les données de la table en fonction de $_GET['id]
  */
+include 'partials/header.php';
 ?>
 <div class="container">
     <h1>Modifier une adresse professionnelle</h1>
@@ -38,3 +39,6 @@
       <button type="submit">Enregistrer les modifications</button>
     </form>
   </div>
+  <?php
+include 'partials/footer.php';
+?>

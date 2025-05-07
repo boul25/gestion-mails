@@ -23,6 +23,7 @@ class ListeProController {
     }
 
     public function loadFormpro(int $id) {
+        
         $dataobj= new Emailpro();
         $data=$dataobj->getById($id);
         require  __DIR__.'/../Views/formupdatepro.php';

@@ -53,6 +53,8 @@ if(@$_SESSION['login']) { //test si on est connecté
 
         case 'formupdatepro' :
             $page = new ListeProController();
+            $page->loadFormpro($_GET['id']);
+            break;
             
 
 
