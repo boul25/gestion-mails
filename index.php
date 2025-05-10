@@ -4,7 +4,7 @@
  * Sujet         : le futur router?
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-20
- * Dernière mod. : 2025-05-07
+ * Dernière mod. : 2025-05-10
  *
  * Description   : fichier par défaut qui s'affiche 
  */
@@ -43,7 +43,7 @@ if(@$_SESSION['login']) { //test si on est connecté
             break;
 
         case 'login' :
-            require 'app/Views/index.php';
+            require 'app/Views/login.php';
             break;
         
         case 'listepro' :
@@ -55,6 +55,11 @@ if(@$_SESSION['login']) { //test si on est connecté
             $page = new ListeProController();
             $page->loadFormpro($_GET['id']);
             break;
+
+        case 'updatepro' :
+            $page = new ListeProController();
+            
+    
             
 
 

@@ -10,6 +10,7 @@
  */
 namespace App\Controllers;
 use App\Models\Emailpro;
+use App\Models\Secteur;
 
 class ListeProController {
 
@@ -26,6 +27,11 @@ class ListeProController {
         
         $dataobj= new Emailpro();
         $data=$dataobj->getById($id);
+        $secteur=Secteur::loadSecteur();
         require  __DIR__.'/../Views/formupdatepro.php';
+    }
+
+    public function updatMailpro() {
+        
     }
 }

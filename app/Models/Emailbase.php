@@ -58,7 +58,7 @@ use \PDO;
         $sql ="SELECT * FROM ".$this->getTablename()." WHERE ". $this->getIdTable() ." = :id";
         $stmt=$conn->prepare($sql);
         $stmt->execute([':id'=>$id]);
-        $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result=$stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
     
