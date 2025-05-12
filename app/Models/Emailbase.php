@@ -61,6 +61,12 @@ use \PDO;
         $result=$stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+/**
+ * fonction qui update
+ *
+ * @param integer $id
+ * @return array
+ */
 
     public function update(int $id, array $data): bool    {
         unset($data[$this->getIdTable()]);
@@ -72,6 +78,19 @@ use \PDO;
         $data['id'] = $id;
 
         $stmt = Database::getConnection()->prepare($sql);
+        return $stmt->execute($data);
+    }
+/**
+ * fonction qui delete
+ *
+ * @param integer $id
+ * @return array
+ */
+    public function delete(int $id) : bool {
+        $conn=Database::getConnection();
+        $sql="DELETE FROM {$this->getTablename()} WHERE {$this->getIdTable()} = :id";
+        $data['id'] = $id;
+        $stmt =$conn->prepare($sql);
         return $stmt->execute($data);
     }
 }

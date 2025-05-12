@@ -10,6 +10,12 @@
  */
 require 'partials/header.php';
 ?>
+<?php if (isset($_GET['success'])): ?>
+  <div class="alert alert-success">
+    ✅ Modifications enregistrées avec succès !
+  </div>
+<?php endif; ?>
+
 <table class="table-emails">
   <thead>
     <tr>
@@ -28,8 +34,8 @@ require 'partials/header.php';
       <td><?= htmlspecialchars($pro['entreprise']?? '') ?></td>
       <td><?= htmlspecialchars($pro['email']?? '') ?></td>
       <td>
-        <a href="index.php?page=formupdatepro&id=<?=$pro['id_pro'];?>">✏️</a>
-        <a href="#" onclick="return confirm('Supprimer ?')">🗑️</a>
+        <a href="index.php?page=formupdatepro&id_pro=<?=$pro['id_pro'];?>">✏️</a>
+        <a href="index.php?page=deletepro&id_pro=<?=$pro['id_pro'];?>" onclick="return confirm('Supprimer ?')">🗑️</a>
       </td>
     </tr>
     <?php endforeach; ?>

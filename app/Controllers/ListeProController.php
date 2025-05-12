@@ -44,4 +44,18 @@ class ListeProController {
         }
         
     }
+
+    public function deleteMailpro ( int $id) {
+        $dataobj=new Emailpro();
+        $result=$dataobj->delete($id);
+        if($result) {
+            header('Location: index.php?page=listepro&success=1');
+            exit;
+        }
+        else {
+            header('Location: index.php?page=listepro&success=0');
+            exit;
+        }
+
+    }
 }

@@ -53,12 +53,17 @@ if(@$_SESSION['login']) { //test si on est connecté
 
         case 'formupdatepro' :
             $page = new ListeProController();
-            $page->loadFormpro($_GET['id']);
+            $page->loadFormpro($_GET['id_pro']);
             break;
 
         case 'updatepro' :
             $page = new ListeProController();
             $page->updateMailpro($_POST['id_pro'],$_POST);
+            break;
+
+        case 'deletepro' : 
+            $page = new ListeProController();
+            $page->deleteMailpro($_GET['id_pro']);
             break;
             
     
