@@ -31,7 +31,17 @@ class ListeProController {
         require  __DIR__.'/../Views/formupdatepro.php';
     }
 
-    public function updatMailpro() {
+    public function updateMailpro( int $id, array $formulaire) {
+        $dataobj=new Emailpro();
+        $result=$dataobj->update($id,$formulaire);
+        if($result) {
+            header('Location: index.php?page=listepro&success=1');
+            exit;
+        }
+        else {
+            header('Location: index.php?page=listepro&success=0');
+            exit;
+        }
         
     }
 }

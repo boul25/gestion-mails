@@ -17,10 +17,10 @@ include 'partials/header.php';
     <input type="hidden" name="id_pro" value="<?=$data['id_pro'];?>">
 
     <label for="nom">Nom</label>
-    <input type="text" id="nom" name="nom" value="<?=$data['nom']; ?>" required>
+    <input type="text" id="nom" name="nom" value="<?=$data['nom']; ?>" >
 
     <label for="entreprise">Entreprise</label>
-    <input type="text" id="entreprise" name="entreprise" value="<?= $data['entreprise']; ?>" required>
+    <input type="text" id="entreprise" name="entreprise" value="<?= $data['entreprise']; ?>" >
 
     <label for="email">Adresse Email</label>
     <input type="email" id="email" name="email" value="<?= $data['email']; ?>" required>

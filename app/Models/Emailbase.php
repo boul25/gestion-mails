@@ -61,5 +61,17 @@ use \PDO;
         $result=$stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-    
- }
+
+    public function update(int $id, array $data): bool    {
+        unset($data[$this->getIdTable()]);
+        $columns = array_keys($data);
+        $fields = array_map(fn($col) => "$col = :$col", $columns);
+        $sql = "UPDATE {$this->getTablename()} SET " . implode(', ', $fields) .
+            " WHERE {$this->getIdTable()} = :id";
+
+        $data['id'] = $id;
+
+        $stmt = Database::getConnection()->prepare($sql);
+        return $stmt->execute($data);
+    }
+}

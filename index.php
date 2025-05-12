@@ -58,6 +58,8 @@ if(@$_SESSION['login']) { //test si on est connecté
 
         case 'updatepro' :
             $page = new ListeProController();
+            $page->updateMailpro($_POST['id_pro'],$_POST);
+            break;
             
     
             
