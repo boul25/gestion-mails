@@ -11,6 +11,12 @@
  */
 include 'partials/header.php';
 ?>
+<?php if (isset($message)): ?>
+  <!-- message alert apres soumissions -->
+  <div class="alert alert-success">
+     <?=$message;?>
+  </div>
+<?php endif; ?>
 <div class="container">
   <h1>Modifier une adresse professionnelle</h1>
   <form action="index.php?page=updatepro" method="post">
