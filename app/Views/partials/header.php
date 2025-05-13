@@ -5,7 +5,7 @@
  * Sujet         : le  header de l' application
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-24
- * Dernière mod. : 2025-05-01
+ * Dernière mod. : 2025-05-13
  *
  * Description   : Juste une partie de l'header
  */
@@ -27,7 +27,7 @@
             <ul>
                 <li><a href="index.php?page=dashboard">Dashboard</a></li>
                 <li><a href="#">Gestion Utilisateur</a></li>
-                <li><a href="#">Gestion Secteur</a></li>
+                <li><a href="index.php?page=listeparticulier">Gestion Secteur</a></li>
                 <li><a href="index.php?page=listepro">Gestion Professionnel</a></li>
                 <li><a href="#">Gestion Particulier</a></li>
 

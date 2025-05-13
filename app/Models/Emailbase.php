@@ -4,9 +4,9 @@
  * Sujet         : Class abstraite pour définir les mails
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-05-04
- * Dernière mod. : 2025-05-07
+ * Dernière mod. : 2025-05-15
  *
- * Description   : factorise les méthodes d'accès aux tables mail
+ * Description   : factorise les méthodes d'accès aux tables
  */
  namespace App\Models;
 
@@ -65,6 +65,7 @@ use \PDO;
  * fonction qui update
  *
  * @param integer $id
+ * @param array $data
  * @return array
  */
 
@@ -84,7 +85,7 @@ use \PDO;
  * fonction qui delete
  *
  * @param integer $id
- * @return array
+ * @return bool
  */
     public function delete(int $id) : bool {
         $conn=Database::getConnection();
@@ -92,5 +93,14 @@ use \PDO;
         $data['id'] = $id;
         $stmt =$conn->prepare($sql);
         return $stmt->execute($data);
+    }
+/**
+ * foncion qui add
+ * 
+ * @param array $data
+ * @return bool
+ */
+    public function add($data) : bool {
+        return true;
     }
 }

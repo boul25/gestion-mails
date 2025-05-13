@@ -4,7 +4,7 @@
  * Sujet         : le futur router?
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
  * Créé le       : 2025-04-20
- * Dernière mod. : 2025-05-10
+ * Dernière mod. : 2025-05-15
  *
  * Description   : fichier par défaut qui s'affiche 
  */
@@ -64,6 +64,16 @@ if(@$_SESSION['login']) { //test si on est connecté
         case 'deletepro' : 
             $page = new ListeProController();
             $page->deleteMailpro($_GET['id_pro']);
+            break;
+        
+        case 'createpro' :
+            $page= new ListeProController();
+            $page->loadFormAddpro();
+            break;
+        
+        case 'addpro' :
+            $page= new ListeProController();
+            $page->addMailpro($_POST);
             break;
             
     

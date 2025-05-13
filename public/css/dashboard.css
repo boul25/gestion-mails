@@ -211,3 +211,32 @@ Css des messages
   background-color: #d4edda;
   border-color: #c3e6cb;
 }
+
+/**
+/ Css pour le bouton ajouter enregistrement
+*/
+.add {
+  text-align: right;
+  margin-bottom: 15px;
+}
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #21509e;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background-color: #163d7a;
+}
+
+.btn-add {
+  background-color: #28a745;
+}
+
+.btn-add:hover {
+  background-color: #218838;
+}

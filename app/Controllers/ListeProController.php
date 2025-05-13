@@ -31,6 +31,11 @@ class ListeProController {
         require  __DIR__.'/../Views/formupdatepro.php';
     }
 
+    public function loadFormAddpro () {
+        $secteur=Secteur::loadSecteur();
+        require __DIR__.'/../Views/formaddpro.php';
+    }
+
     public function updateMailpro( int $id, array $formulaire) {
         $dataobj=new Emailpro();
         $result=$dataobj->update($id,$formulaire);
@@ -42,6 +47,10 @@ class ListeProController {
             header('Location: index.php?page=listepro&success=0');
             exit;
         }
+        
+    }
+
+    public function addMailpro ( array $formulaire) {
         
     }
 
