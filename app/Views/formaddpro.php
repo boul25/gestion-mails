@@ -14,8 +14,6 @@ include 'partials/header.php';
 <div class="container">
   <h1>Ajouter une adresse professionnelle</h1>
   <form action="index.php?page=addpro" method="post">
-    <input type="hidden" name="id_pro" value="">
-
     <label for="nom">Nom</label>
     <input type="text" id="nom" name="nom" value="" >
 
@@ -30,13 +28,13 @@ include 'partials/header.php';
 
     <label for="telephone">Téléphone</label>
     <input type="text" id="telephone" value="" name="telephone">
-
     <label for="id_secteur">Secteur</label>
     <select id="id_secteur" name="id_secteur">
       <option value="">-- Choisir un secteur --</option>
       <!-- Options PHP dynamiques ici -->
+       
       <?php foreach ($secteur as $value) :   ?>
-        <option value="<?= $value['id_secteur']; ?>" <?php if ($value['id_secteur'] == $data['id_secteur']) echo "selected"; ?>>
+        <option value="<?= $value['id_secteur']; ?>">
           <?= $value['libelle_secteur']; ?>
         </option>
       <?php endforeach; ?>

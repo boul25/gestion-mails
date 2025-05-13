@@ -100,7 +100,21 @@ use \PDO;
  * @param array $data
  * @return bool
  */
-    public function add($data) : bool {
-        return true;
+    public function add($data) : string {
+        try {
+            $conn=Database::getConnection();
+            $columns = array_keys($data);
+            $fields = array_map(fn($col) => "$col = :$col", $columns);
+            $sql ="INSERT INTO {$this->getTablename()} (" . implode(', ', $columns) . ")
+            VALUES (:" . implode(', :', $columns) . ") ";
+            $stmt= $conn->prepare($sql);
+            $stmt->execute($data);
+            return "enregistrement ajouté";
+        }
+
+        catch (PDOException $e) {
+            return " impossible d'ajouter l'enrgesitrement ".e->getMessage();
+
+        }
     }
 }

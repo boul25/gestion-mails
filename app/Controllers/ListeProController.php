@@ -51,7 +51,16 @@ class ListeProController {
     }
 
     public function addMailpro ( array $formulaire) {
-        
+        $dataobj=new Emailpro();
+        $dataobj->add($formulaire);
+        if($result) {
+            header('Location: index.php?page=listepro&success=1');
+            exit;
+        }
+        else {
+            header('Location: index.php?page=listepro&success=0');
+            exit;
+        }
     }
 
     public function deleteMailpro ( int $id) {
