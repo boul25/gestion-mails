@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Fichier       : liste_pro.php
- * Sujet         : view pour la liste des emails pros
+ * Fichier       : serp_pro.php
+ * Sujet         : Search result page
  * Auteur        : Mamitiana Ramanandraitsiory <boul25@gmail.com>
- * Créé le       : 2025-05-02
- * Dernière mod. : 2025-05-17
+ * Créé le       : 2025-06-02
+ * Dernière mod. : 2025-06-02
  *
- * Description   : Affichage liste mail pro
+ * Description   : On liste içi le resultat des recherces
  */
 require 'partials/header.php';
 ?>
@@ -35,9 +35,12 @@ require 'partials/header.php';
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($liste as $pro): ?>
+    <?php 
+        $i=1;
+        foreach ($result as $pro): 
+    ?>
       <tr>
-        <td><?= $pro['id_pro']; ?></td>
+        <td><strong><?=$i;?> - </strong><?= $pro['id_pro']; ?></td>
         <td><?= htmlspecialchars($pro['nom'] ?? '') ?></td>
         <td><?= htmlspecialchars($pro['entreprise'] ?? '') ?></td>
         <td><?= htmlspecialchars($pro['email'] ?? '') ?></td>
@@ -46,11 +49,11 @@ require 'partials/header.php';
           <a href="index.php?page=deletepro&id_pro=<?= $pro['id_pro']; ?>" onclick="return confirm('Supprimer ?')">🗑️</a>
         </td>
       </tr>
-    <?php endforeach; ?>
+    <?php $i++; endforeach; ?>
   </tbody>
 </table>
 <?php
-$nbPages = ceil($total / 30);
+$nbPages = ceil($total_search / 30);
 $pageActive = isset($_GET['pagination']) ? (int) $_GET['pagination'] : 0;
 
 $start = max(0, $pageActive - 2);
@@ -60,13 +63,13 @@ echo "<nav class='pagination'><ul>";
 
 // 🔹 Bouton "Début"
 if ($pageActive > 2) {
-  echo "<li><a href=\"index.php?page=listepro&pagination=0\">« Début</a></li>";
+  echo "<li><a href=\"index.php?page=searchpro&pagination=0&rechercher=$searchmot\">« Début</a></li>";
 }
 
 // 🔹 Bouton "Précédent"
 if ($pageActive > 0) {
   $prev = $pageActive - 1;
-  echo "<li><a href=\"index.php?page=listepro&pagination=$prev\">← Précédent</a></li>";
+  echo "<li><a href=\"index.php?page=searchpro&pagination=$prev&rechercher=$searchmot\">← Précédent</a></li>";
 }
 
 // 🔸 Pages autour de la page active
@@ -74,29 +77,29 @@ for ($i = $start; $i <= $end; $i++) {
   if ($i == $pageActive) {
     echo "<li><span class='active'>" . ($i + 1) . "</span></li>";
   } else {
-    echo "<li><a href=\"index.php?page=listepro&pagination=$i\">" . ($i + 1) . "</a></li>";
+    echo "<li><a href=\"index.php?page=searchpro&pagination=$i&rechercher=$searchmot\">" . ($i + 1) . "</a></li>";
   }
 }
 
 // 🔹 Bouton "Suivant"
 if ($pageActive < $nbPages - 1) {
   $next = $pageActive + 1;
-  echo "<li><a href=\"index.php?page=listepro&pagination=$next\">Suivant →</a></li>";
+  echo "<li><a href=\"index.php?page=searchpro&pagination=$next&rechercher=$searchmot\">Suivant →</a></li>";
 }
 
 // 🔹 Bouton "Fin"
 if ($pageActive < $nbPages - 3) {
   $last = $nbPages - 1;
-  echo "<li><a href=\"index.php?page=listepro&pagination=$last\">Fin »</a></li>";
+  echo "<li><a href=\"index.php?page=searchpro&pagination=$last&rechercher=$searchmot\">Fin »</a></li>";
 }
 
 echo "</ul></nav>";
 
 // ℹ️ Affichage du résumé
 $debut = $pageActive * 30 + 1;
-$fin = min(($pageActive + 1) * 30, $total);
+$fin = min(($pageActive + 1) * 30, $total_search);
 echo "<div class='pagination-info'>";
-echo "Affichage des enregistrements $debut à $fin sur $total (Page " . ($pageActive + 1) . " sur $nbPages)";
+echo "Affichage des enregistrements $debut à $fin sur $total_search (Page " . ($pageActive + 1) . " sur $nbPages)";
 echo "</div>";
 ?>
 

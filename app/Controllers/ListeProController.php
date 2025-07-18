@@ -15,7 +15,7 @@ use App\Models\Secteur;
 class ListeProController {
 
     public function listeMailpro() {
-        $pagination=$_GET['pagination'] ?? 0;
+        $pagination = isset($_GET['pagination']) ? (int) $_GET['pagination'] : 0;
         $emailpro= new Emailpro();
         $liste=$emailpro->getAll($pagination);
         $total=$emailpro->getNombre();
@@ -77,6 +77,16 @@ class ListeProController {
             header('Location: index.php?page=listepro&success=0');
             exit;
         }
+
+    }
+
+    public function searchMailpro(string $mot) {
+        $pagination = isset($_GET['pagination']) ? (int) $_GET['pagination'] : 0;
+        $dataobj = new Emailpro();
+        $total_search=$dataobj->search_total($mot, $dataobj->getColumn());
+        $searchmot=$mot;
+        $result = $dataobj->search($mot,$dataobj->getColumn(), $pagination);
+        require __DIR__ . '/../Views/serp_pro.php';
 
     }
 }

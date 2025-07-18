@@ -75,6 +75,12 @@ if(@$_SESSION['login']) { //test si on est connecté
             $page= new ListeProController();
             $page->addMailpro($_POST);
             break;
+        
+        case 'searchpro' :
+            $page = new ListeProController();
+            $page->searchMailpro($_REQUEST['rechercher']);
+            break;
+            
             
     
             

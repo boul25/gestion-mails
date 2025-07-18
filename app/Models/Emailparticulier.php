@@ -32,5 +32,9 @@
         return "id_particulier";
 
     }
+    public function getColumn(): array
+    {
+        return ['nom', 'email', 'telephone'];
+    }
     
  }

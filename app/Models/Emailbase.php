@@ -23,6 +23,7 @@ use App\Core\Database;
      */
     abstract public function getTablename() : string;
     abstract public function getIdTable() : string;
+    abstract public function getColumn() : array;
 
     public  function getNombre() :int {
         $conn = Database::getConnection();
@@ -40,8 +41,8 @@ use App\Core\Database;
         return $result;
     }
 
-    public  function getAll($pagination) : array {
-        $offset = $pagination * 30 ?? 0;
+    public  function getAll(int $pagination = 0) : array {
+        $offset = $pagination * 30;
         $conn = Database::getConnection();
         $sql = "SELECT * FROM ".$this->getTablename()." LIMIT 30 OFFSET $offset ";
         $stmt = $conn->query($sql);
@@ -115,5 +116,37 @@ use App\Core\Database;
        catch (PDOException $e) {
             return " impossible d'ajouter l'enrgesitrement ".$e->getMessage();
         }
+    }
+
+    public function search(string $mot, array $colonnes, int $pagination)
+    {
+        $offset = $pagination * 30;
+        $conn = Database::getConnection();
+        $colonnes = $this->getColumn();
+        // Génère : nom LIKE :mot OR entreprise LIKE :mot OR ...
+        $conditions = array_map(fn($col) => "$col LIKE :mot", $colonnes);
+        $where = implode(' OR ', $conditions);
+
+        $sql = "SELECT * FROM " . $this->getTablename() . " 
+                WHERE $where
+                ORDER BY " . $this->getIdTable() . " DESC" . " LIMIT 30 OFFSET $offset ";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['mot' => '%' . $mot . '%']);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function search_total(string $mot, array $colonnes) {
+        $conn = Database::getConnection();
+        $colonnes = $this->getColumn();
+        $conditions = array_map(fn($col) => "$col LIKE :mot", $colonnes);
+        $where = implode(' OR ', $conditions);
+        $sql = "SELECT COUNT(*) as totalSearch FROM " . $this->getTablename() . "  WHERE ". $where;
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['mot' => '%' . $mot . '%']);
+        $result=$stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['totalSearch'];
+
+        
     }
 }

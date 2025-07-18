@@ -22,4 +22,7 @@ use \PDO;
   public function getIdTable(): string {
     return "id_pro";
   }
+  public function getColumn() :array {
+    return ['nom', 'entreprise', 'email', 'fonction', 'telephone'];
+  }
  }
